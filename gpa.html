@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>GPA Calculation</title>
+        <script>
+            function showHideT()
+            {
+                course = document.getElementById("course").value;
+                if(course == "3")
+                {
+                    document.getElementById("rowT").style.display = "";
+                }
+                else
+                {
+                    document.getElementById("rowT").style.display = "none";
+                }
+            }
+
+            function calculateGPA()
+            {
+                course = document.getElementById("course").value;
+                qt = eval(document.getElementById("qt").value);
+                gk = eval(document.getElementById("gk").value);
+                ck = eval(document.getElementById("ck").value);
+                gpa = 0;
+
+                if(course == "1")
+                {
+                    gpa = qt * 0.3 + gk * 0.2 + ck * 0.5;
+                }
+                else if(course == "2")
+                {
+                    gpa = qt * 0.25 + gk * 0.25 + ck * 0.5;
+                }
+                else if(course == "3")
+                {
+                    t = eval(document.getElementById("t").value);
+                    gpa = qt * 0.15 + gk * 0.2 + ck * 0.5 + t * 0.15;
+                }
+
+                document.getElementById("result").innerText = "GPA: " + gpa;
+            }
+        </script>
+    </head>
+    <body onload="showHideT()">
+        <h1>GPA Calculation</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>Select Course:</td>
+                    <td>
+                        <select id="course" onchange="showHideT()">
+                            <option value="1">Course 1</option>
+                            <option value="2">Course 2</option>
+                            <option value="3">Course 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>QT:</td>
+                    <td><input type="text" id="qt"></td>
+                </tr>
+                <tr>
+                    <td>GK:</td>
+                    <td><input type="text" id="gk"></td>
+                </tr>
+                <tr>
+                    <td>CK:</td>
+                    <td><input type="text" id="ck"></td>
+                </tr>
+                <tr id="rowT" style="display:none">
+                    <td>T:</td>
+                    <td><input type="text" id="t"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center">
+                        <input type="button" value="Calculate GPA" onclick="calculateGPA()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="result"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
