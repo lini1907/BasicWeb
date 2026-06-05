@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>ex55</title>
+
+<script>
+
+function findSolution()
+{
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+
+    let delta = b*b - 4*a*c;
+
+    if(delta < 0)
+    {
+        document.getElementById("result").value =
+        "No solution";
+    }
+    else if(delta == 0)
+    {
+        let x = -b/(2*a);
+
+        document.getElementById("result").value =
+        "x = " + x;
+    }
+    else
+    {
+        let x1 = (-b + Math.sqrt(delta))/(2*a);
+        let x2 = (-b - Math.sqrt(delta))/(2*a);
+
+        document.getElementById("result").value =
+        "x1 = " + x1 + " ; x2 = " + x2;
+    }
+}
+
+function clearData()
+{
+    document.getElementById("a").value = "";
+    document.getElementById("b").value = "";
+    document.getElementById("c").value = "";
+    document.getElementById("result").value = "";
+}
+
+</script>
+</head>
+
+<body>
+
+<table border="1">
+
+<tr>
+    <th colspan="2">The quadratic equation</th>
+</tr>
+
+<tr>
+    <td>a:</td>
+    <td><input type="text" id="a"></td>
+</tr>
+
+<tr>
+    <td>b:</td>
+    <td><input type="text" id="b"></td>
+</tr>
+
+<tr>
+    <td>c:</td>
+    <td><input type="text" id="c"></td>
+</tr>
+
+<tr>
+    <td>Result:</td>
+    <td><input type="text" id="result"></td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <button onclick="findSolution()">
+            Find solution
+        </button>
+
+        <button onclick="clearData()">
+            Clear
+        </button>
+    </td>
+</tr>
+
+</table>
+
+</body>
+</html>

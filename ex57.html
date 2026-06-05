@@ -1,0 +1,146 @@
+<html>
+<head>
+    <title>Exercise 57</title>
+
+    <script>
+
+        function calc1()
+        {
+            let qty = Number(document.getElementById("qty1").value);
+
+            if(isNaN(qty) || qty < 0)
+            {
+                alert("Please enter a valid quantity!");
+                document.getElementById("qty1").value = "";
+                return;
+            }
+
+            document.getElementById("item1").value = (qty * 19.95).toFixed(2);
+        }
+
+        function calc2()
+        {
+            let qty = Number(document.getElementById("qty2").value);
+
+            if(isNaN(qty) || qty < 0)
+            {
+                alert("Please enter a valid quantity!");
+                document.getElementById("qty2").value = "";
+                return;
+            }
+
+            document.getElementById("item2").value = (qty * 29.95).toFixed(2);
+        }
+
+        function calc3()
+        {
+            let qty = Number(document.getElementById("qty3").value);
+
+            if(isNaN(qty) || qty < 0)
+            {
+                alert("Please enter a valid quantity!");
+                document.getElementById("qty3").value = "";
+                return;
+            }
+
+            document.getElementById("item3").value = (qty * 39.95).toFixed(2);
+        }
+
+        function sumAll()
+        {
+            let total1 = Number(document.getElementById("item1").value) || 0;
+            let total2 = Number(document.getElementById("item2").value) || 0;
+            let total3 = Number(document.getElementById("item3").value) || 0;
+
+            let grandTotal = total1 + total2 + total3;
+
+            document.getElementById("total").value =
+                grandTotal.toFixed(2);
+        }
+
+    </script>
+</head>
+
+<body>
+
+<table border="1" width="800">
+
+    <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Item total</th>
+    </tr>
+
+    <tr>
+        <td>C112</td>
+        <td>Mouse</td>
+        <td>19.95</td>
+
+        <td>
+            <input type="text"
+                   id="qty1"
+                   onchange="calc1()">
+        </td>
+
+        <td>
+            <input type="text"
+                   id="item1"
+                   readonly>
+        </td>
+    </tr>
+
+    <tr>
+        <td>B124</td>
+        <td>Keyboard US</td>
+        <td>29.95</td>
+
+        <td>
+            <input type="text"
+                   id="qty2"
+                   onchange="calc2()">
+        </td>
+
+        <td>
+            <input type="text"
+                   id="item2"
+                   readonly>
+        </td>
+    </tr>
+
+    <tr>
+        <td>U125</td>
+        <td>USB KingMax</td>
+        <td>39.95</td>
+
+        <td>
+            <input type="text"
+                   id="qty3"
+                   onchange="calc3()">
+        </td>
+
+        <td>
+            <input type="text"
+                   id="item3"
+                   readonly>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="5" align="right">
+            Total:
+            <input type="text"
+                   id="total"
+                   readonly>
+
+            <button onclick="sumAll()">
+                Sum
+            </button>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
